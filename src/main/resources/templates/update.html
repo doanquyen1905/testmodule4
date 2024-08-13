@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Order</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h4>Edit Order</h4>
+    <form th:action="@{/orders/update}" th:object="${order}" method="post">
+        <input type="hidden" th:field="*{orderId}" />
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" th:field="*{product.productName}" class="form-control" readonly/>
+        </div>
+        <div class="form-group">
+            <label>Price (USD)</label>
+            <input type="text" th:field="*{product.price}" class="form-control" readonly/>
+        </div>
+        <div class="form-group">
+            <label>Status</label>
+            <input type="text" th:field="*{product.status}" class="form-control" readonly/>
+        </div>
+        <div class="form-group">
+            <label>Order Date</label>
+            <input type="text" th:field="*{orderDate}" class="form-control" readonly/>
+        </div>
+        <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" th:field="*{quantity}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Total (USD)</label>
+            <input type="text" th:field="*{totalPrice}" class="form-control" readonly/>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+</body>
+</html>
